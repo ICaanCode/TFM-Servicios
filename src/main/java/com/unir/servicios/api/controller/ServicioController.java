@@ -1,8 +1,8 @@
 package com.unir.servicios.api.controller;
 
-import com.unir.servicios.api.dto.servicio.ServicioDTO;
 import com.unir.servicios.api.response.ApiResponse;
 import com.unir.servicios.application.usecases.ServicioUseCase;
+import com.unir.servicios.domain.model.Servicio;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@ public class ServicioController {
 
   @GetMapping
   public ResponseEntity<Map<String, Object>> obtenerServicios() {
-    List<ServicioDTO> servicios = servicioUseCase.obtenerServicios();
+    List<Servicio> servicios = servicioUseCase.obtenerServicios();
     return ApiResponse.success(servicios, HttpStatus.OK);
   }
 
